@@ -1,0 +1,137 @@
+.header-titles1 {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   
+  padding: 12px 20px;
+  background: #4a5568;           
+  color: #fff;
+  border-radius: 6px 6px 0px 0px;
+  margin-top: 15px;
+  border:1px solid white;
+}
+
+.header1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 10px;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  transition: background 0.3s ease;
+  background-color:#52556f;
+}
+
+.heading-title {
+  border: 1px solid #ccc;
+  margin: 15px 0;
+  padding: 15px;
+  background-color: #2d3748;       
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.Adding-Items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.Adding-Items p {
+    gap:20px;
+  margin: 8px 0;
+  color: #e2e8f0;
+}
+
+.Adding-Items input,
+.Adding-Items select {
+  margin-left: 8px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Adding-Items input:focus,
+.Adding-Items select:focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 6px rgba(49,130,206,0.5);
+}
+
+button {
+  margin: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #3182ce;
+  color: #fff;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #2b6cb0;
+  transform: scale(1.05);
+}
+
+
+.header1 svg {
+  cursor: pointer;
+  margin: 0 6px;
+  font-size: 18px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.header1 svg:hover {
+  transform: scale(1.2);
+  color: #3182ce;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.transaction-table th,
+.transaction-table td {
+  border: none;
+  border-bottom: 1px solid white;;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.transaction-table th {
+  background-color: #52556f;
+  color: #fff;
+  font-weight: bold;
+}
+
+.transaction-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.transaction-table svg {
+  cursor: pointer;
+  margin: 0 6px;
+  font-size: 18px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.transaction-table svg:hover {
+  transform: scale(1.2);
+  color: #3182ce;
+}

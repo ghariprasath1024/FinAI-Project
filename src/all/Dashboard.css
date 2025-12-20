@@ -1,0 +1,78 @@
+.main {
+    padding: 20px;
+    font-family: sans-serif;
+    margin-left:270px;
+    padding-top:80px;
+}
+
+.sub {
+    text-align: left;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.card {
+    background: #52556f;
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.label1 {
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.value {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.charts {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.chart-box {
+    flex: 1;
+    min-width: 300px;
+    background: #52556f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pie,
+.bars {
+    height: 200px;
+    background: #52556f;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.icons {
+    padding: 8px 10px;
+    background-color: #000000;
+    border-radius: 5px;
+}
+
+.label {
+    display: flex;
+    justify-content: space-between;
+}
