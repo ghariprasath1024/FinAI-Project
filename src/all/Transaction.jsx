@@ -104,32 +104,15 @@ const Transaction = () => {
                     <div className="Adding-Items">
                         <p>
                             Description:
-                            <input
-                                type="text"
-                                placeholder="enter a description"
-                                required
-                                value={add}
-                                onChange={(event) => setAdd(event.target.value)}
-                            />
+                            <input type="text"placeholder="enter a description" required value={add} onChange={(event) => setAdd(event.target.value)}/>
                         </p>
                         <p>
                             Amount:
-                            <input
-                                type="number"
-                                placeholder="enter an amount"
-                                required
-                                value={amount}
-                                onChange={(event) => setAmount(event.target.value)}
-                            />
+                            <input type="number" placeholder="enter an amount" required value={amount} onChange={(event) => setAmount(event.target.value)}/>
                         </p>
                         <p>
                             Category:
-                            <input
-                                type="text"
-                                placeholder="enter a category"
-                                value={category}
-                                onChange={(event) => setCategory(event.target.value)}
-                            />
+                            <input type="text" placeholder="enter a category" value={category} onChange={(event) => setCategory(event.target.value)}/>
                         </p>
                         <p>
                             Type:

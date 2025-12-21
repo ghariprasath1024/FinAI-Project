@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import "./Budgets.css";
 const Budgets = ({ transactions = [] }) => {
     const [budgets, setBudgets] = useState([]);
     const [category, setCategory] = useState("");
@@ -62,44 +63,38 @@ const Budgets = ({ transactions = [] }) => {
     const handleDelete = (id) => {
         setBudgets(budgets.filter((b) => b.id !== id));
     };
-
+    const currentYear = new Date().getFullYear();
     return (
         <div className="main">
-            <h2>Monthly Budget Manager</h2>
-
-            {!showForm && (
-                <button onClick={() => setShowForm(true)}>
-                    Add Budget
-                </button>
-            )}
-
+            <h2>Budgets</h2>
+            <p>Track spending limits per category.</p>
+            <div className="budget1">
+               <p><h2>Monthly Budget Manager</h2>Tracking for December  {currentYear}</p>
+                {!showForm && (
+                    <button onClick={() => setShowForm(true)}>
+                       + Add Budget
+                    </button>
+                )}
+            </div>
             {showForm && (
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Category:</label>
-                        <input
-                            type="text"
-                            value={category}
-                            onChange={(e) => setCategory(e.target.value)}
-                            required
-                        />
+                    <p>Adding a New Budgets</p>
+                    <hr />
+                    <div className="form1">
+                        <div>
+                            <label>Category:</label>
+                            <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required/>
+                        </div>
+                        <div>
+                            <label>Limit of This category: </label>
+                            <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} required />
+                        </div>
                     </div>
-
-                    <div>
-                        <label>Amount:</label>
-                        <input
-                            type="number"
-                            value={amount}
-                            onChange={(e) => setAmount(e.target.value)}
-                            required
-                        />
-                    </div>
-
-                    <button type="submit">
+                    <button type="submit" className="edit">
                         {editId ? "Update" : "Save"}
                     </button>
 
-                    <button type="button" onClick={resetForm}>
+                    <button type="button" onClick={resetForm} className="edit">
                         Cancel
                     </button>
                 </form>
@@ -109,24 +104,22 @@ const Budgets = ({ transactions = [] }) => {
                 const spent = spendingData[budget.category] || 0;
                 const percent = Math.min((spent / budget.amount) * 100, 100);
                 const over = spent > budget.amount;
-
                 return (
-                    <div key={budget.id}>
-                        <h3>{budget.category}</h3>
+                    <div key={budget.id} className="budget">
+                        <h3>{budget.category}</h3><button onClick={() => handleEdit(budget)} >Edit</button><button onClick={() => handleDelete(budget.id)}>Delete</button>
                         <p>Limit: ${budget.amount}</p>
-                        <p>Spent: ${spent}</p>
-                        <p>Used: {Math.round(percent)}%</p>
+                        <p>{spent}<p>Used: {Math.round(percent)}%</p></p>
                         {over ? (
                             <p>Over budget by ${spent - budget.amount}</p>
                         ) : (
                             <p>Remaining ${budget.amount - spent}</p>
                         )}
-                        <button onClick={() => handleEdit(budget)}>Edit</button>
-                        <button onClick={() => handleDelete(budget.id)}>Delete</button>
                     </div>
                 );
             })}
+
         </div>
+
     );
 };
 export default Budgets;
