@@ -12,7 +12,9 @@ function Main() {
     let [createac, setCreateac] = useState(false);
     let [dashboard, setDashboard] = useState(false)
 
-    let [data, setData] = useState("");
+    let [username1, setUsername1] = useState("");
+    let [password1, setPassword1] = useState("")
+    let [data, setData] = useState([]);
     useEffect(() => {
         fetch("http://localhost:4000/product")
             .then((data1) => {
@@ -23,15 +25,15 @@ function Main() {
                 console.log(data2)
             })
     }, [1])
-    const button = () => {
-        if (data.username === username1 && data.password === password1) {
-            setLogin(true);
-        }
-    }
     const Login1 = () => {
-        setLogin(false);
-        setCreateac(false);
-        setDashboard(true);
+        if (data[0].email === username1 && data[0].password === password1) {
+            setDashboard(true);
+            setLogin(false);
+            setCreateac(false);
+        }
+       else{
+        alert("sk")
+       }
     }
     const createac1 = () => {
         setLogin(false);
@@ -50,9 +52,9 @@ function Main() {
                 <div className='login'>
                     <h1>Login</h1>
                     <label htmlFor="">Email  :</label>
-                    <input type="email" className='inputtype1' value={username1} /><br />
+                    <input type="email" className='inputtype1' value={username1} onChange={(e) => setUsername1(e.target.value)} /><br />
                     <label htmlFor="">PassWord  :</label>
-                    <input type="password" className='inputtype1' value={password1}/>
+                    <input type="password" className='inputtype1' value={password1} onChange={(e) => setPassword1(e.target.value)} />
                     <br />
                     <button onClick={Login1}>Login</button>
                     <p>or</p>
@@ -64,13 +66,15 @@ function Main() {
                 createac &&
                 <div>
                     <div className='login'>
-                        <h1>Create a
-                            <br /> Account</h1>
+                        <h1>Create a Account</h1>
                         <label htmlFor="">Email  :</label>
                         <input type="email" className='inputtype1' /><br />
                         <label htmlFor="">PassWord  :</label>
                         <input type="password" className='inputtype1' />
-                        <br />
+                        <br /> 
+                        <button onClick={Login1}>Create a Acc....</button>
+                        <p>or</p>
+                        <hr className="hr" />
                         <button onClick={backtologin}>Back-To-Login</button>
                     </div>
                 </div>
@@ -80,6 +84,7 @@ function Main() {
                 <div className='heading1'>
                     <div className='header'>
                         <h4>FinAI - Intelligent Finance Manager</h4>
+                        <h6>{data[0].email}</h6>
                     </div>
                     <Router>
                         <div className='title2'>

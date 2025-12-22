@@ -246,3 +246,12 @@ h4 {
 .login p {
   margin: 0px;
 }
+
+h6{
+  position:fixed;
+  top:0px;
+  left:90%;
+  background-color: #212121;
+  padding:5px;
+  border-radius: 5px;
+}
