@@ -7,39 +7,76 @@ import Budgets from './Budgets';
 import AIadvisor from './AIadvisor';
 
 function Main() {
-    let [login, setLogin] = useState(false);
-    let [data, setData] = useState("");
-    // useEffect(() => {
-    //     fetch("http://localhost:4000/product")
-    //         .then((data1) => {
-    //             return (data1.json());
-    //         })
-    //         .then((data2) => {
-    //             setData(data2)
-    //             console.log(data2)
-    //         })
-    // }, [1])
-    // const button = () => {
-    //     if (data.username === username1 && data.password === password1) {
-    //         setLogin(true);
-    //     }
-    // }
+    //login page
+    let [login, setLogin] = useState(true);
+    let [createac, setCreateac] = useState(false);
+    let [dashboard, setDashboard] = useState(false)
 
+    let [data, setData] = useState("");
+    useEffect(() => {
+        fetch("http://localhost:4000/product")
+            .then((data1) => {
+                return (data1.json());
+            })
+            .then((data2) => {
+                setData(data2)
+                console.log(data2)
+            })
+    }, [1])
+    const button = () => {
+        if (data.username === username1 && data.password === password1) {
+            setLogin(true);
+        }
+    }
+    const Login1 = () => {
+        setLogin(false);
+        setCreateac(false);
+        setDashboard(true);
+    }
+    const createac1 = () => {
+        setLogin(false);
+        setDashboard(false);
+        setCreateac(true);
+    }
+    const backtologin = () => {
+        setLogin(true);
+        setCreateac(false);
+        setDashboard(false);
+    }
     return (
         <div>
             {
-                !login &&
-                <div>
-                    <label htmlFor="">UserName:</label>
-                    <input type="text"/><br />
-                    <label htmlFor="">PassWord:</label>
-                    <input type="password"/>
+                login &&
+                <div className='login'>
+                    <h1>Login</h1>
+                    <label htmlFor="">Email  :</label>
+                    <input type="email" className='inputtype1' value={username1} /><br />
+                    <label htmlFor="">PassWord  :</label>
+                    <input type="password" className='inputtype1' value={password1}/>
                     <br />
-                    <button onClick={()=>setLogin(true)}>login</button>
+                    <button onClick={Login1}>Login</button>
+                    <p>or</p>
+                    <hr className="hr" />
+                    <button onClick={createac1}>Create Account</button>
                 </div>
             }
             {
-                login &&
+                createac &&
+                <div>
+                    <div className='login'>
+                        <h1>Create a
+                            <br /> Account</h1>
+                        <label htmlFor="">Email  :</label>
+                        <input type="email" className='inputtype1' /><br />
+                        <label htmlFor="">PassWord  :</label>
+                        <input type="password" className='inputtype1' />
+                        <br />
+                        <button onClick={backtologin}>Back-To-Login</button>
+                    </div>
+                </div>
+            }
+            {
+                dashboard &&
                 <div className='heading1'>
                     <div className='header'>
                         <h4>FinAI - Intelligent Finance Manager</h4>
@@ -54,7 +91,7 @@ function Main() {
                                 <Link to="/Aiadvisor">Aiadvisor</Link>
                             </div>
                             <button className='colorchange'>Light Mode</button>
-                            <button className='sign-out' onClick={() => setLogin(false)}>Sign Out</button>
+                            <button className='sign-out' onClick={backtologin}>Sign Out</button>
                         </div>
                         <Routes>
                             <Route path='/' element={<Dashboard />} />
@@ -63,7 +100,6 @@ function Main() {
                             <Route path='/Aiadvisor' element={<AIadvisor />} />
                         </Routes>
                     </Router>
-
                 </div>
             }
         </div>

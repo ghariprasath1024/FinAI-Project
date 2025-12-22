@@ -40,9 +40,10 @@ a {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-a:hover{
+a:hover {
   background-color: #1b4067;
 }
+
 .header {
   position: fixed;
   width: 100%;
@@ -151,7 +152,6 @@ h4 {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  /* margin: 50px auto 0 auto; */
   padding: auto 15px 15px auto;
   width: 250px;
   height: 40px;
@@ -208,4 +208,41 @@ h4 {
 .icon {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: max-content;
+  border: 1px solid white;
+  padding: 40px 50px;
+  text-align: center;
+  margin: 130px auto;
+  border-radius: 10px;
+  gap: 0px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.inputtype1 {
+  margin: 0px;
+}
+
+.login:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: 1px 1px 8px white;
+  .hr{
+    width: 140px;
+    transform: scale(1.2);
+  }
+}
+
+.hr {
+  width: 100px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.login p {
+  margin: 0px;
 }

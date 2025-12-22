@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from "react";
 import "./Budgets.css";
+import { TiPencil } from "react-icons/ti";
+import { MdDeleteOutline } from "react-icons/md";
 const Budgets = ({ transactions = [] }) => {
     const [budgets, setBudgets] = useState([]);
     const [category, setCategory] = useState("");
@@ -63,18 +65,33 @@ const Budgets = ({ transactions = [] }) => {
     const handleDelete = (id) => {
         setBudgets(budgets.filter((b) => b.id !== id));
     };
-    const currentYear = new Date().getFullYear();
+    const month1 = new Date().toLocaleString("default", { month: "long" });
+    const currentYear =new Date().toLocaleDateString();
     return (
         <div className="main">
             <h2>Budgets</h2>
             <p>Track spending limits per category.</p>
             <div className="budget1">
-               <p><h2>Monthly Budget Manager</h2>Tracking for December  {currentYear}</p>
+                <p><h2>Monthly Budget Manager</h2>Tracking for {month1}  {currentYear}</p>
                 {!showForm && (
                     <button onClick={() => setShowForm(true)}>
-                       + Add Budget
+                        + Add Budget
                     </button>
                 )}
+            </div>
+            <div className="balances1">
+                <div className="balances">
+                    <p>Total Budget</p>
+                    <p>${ }</p>
+                </div>
+                <div className="balances">
+                    <p>Total Spent</p>
+                    <p>${ }</p>
+                </div>
+                <div className="balances">
+                    <p>Remaining</p>
+                    <p>${ }</p>
+                </div>
             </div>
             {showForm && (
                 <form onSubmit={handleSubmit}>
@@ -83,7 +100,7 @@ const Budgets = ({ transactions = [] }) => {
                     <div className="form1">
                         <div>
                             <label>Category:</label>
-                            <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required/>
+                            <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required />
                         </div>
                         <div>
                             <label>Limit of This category: </label>
@@ -99,27 +116,26 @@ const Budgets = ({ transactions = [] }) => {
                     </button>
                 </form>
             )}
-
-            {budgets.map((budget) => {
-                const spent = spendingData[budget.category] || 0;
-                const percent = Math.min((spent / budget.amount) * 100, 100);
-                const over = spent > budget.amount;
-                return (
-                    <div key={budget.id} className="budget">
-                        <h3>{budget.category}</h3><button onClick={() => handleEdit(budget)} >Edit</button><button onClick={() => handleDelete(budget.id)}>Delete</button>
-                        <p>Limit: ${budget.amount}</p>
-                        <p>{spent}<p>Used: {Math.round(percent)}%</p></p>
-                        {over ? (
-                            <p>Over budget by ${spent - budget.amount}</p>
-                        ) : (
-                            <p>Remaining ${budget.amount - spent}</p>
-                        )}
-                    </div>
-                );
-            })}
-
+            <div className="allingment">
+                {budgets.map((budget) => {
+                    const spent = spendingData[budget.category] || 0;
+                    const percent = Math.min((spent / budget.amount) * 100, 100);
+                    const over = spent > budget.amount;
+                    return (
+                        <div key={budget.id} className="budget">
+                            <div><h3>{budget.category}</h3><div><TiPencil role="button"onClick={() => handleEdit(budget)} tabIndex={0} className="editores" /><MdDeleteOutline role="button" onClick={() => handleDelete(budget.id)} tabIndex={0} className="editores" /></div></div>
+                            <p>Limit: ${budget.amount}</p>
+                            <div><p>{spent}</p><p>Used: {Math.round(percent)}%</p></div>
+                            {over ? (
+                                <p>Over budget by ${spent - budget.amount}</p>
+                            ) : (
+                                <p>Remaining ${budget.amount - spent}</p>
+                            )}
+                        </div>
+                    );
+                })}
+            </div>
         </div>
-
     );
 };
 export default Budgets;
