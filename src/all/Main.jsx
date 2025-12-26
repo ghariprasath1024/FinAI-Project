@@ -14,26 +14,30 @@ function Main() {
 
     let [username1, setUsername1] = useState("");
     let [password1, setPassword1] = useState("")
+
+    let [ligthchanger, setlightchanger] = useState(true)
+
     let [data, setData] = useState([]);
     useEffect(() => {
         fetch("http://localhost:4000/product")
             .then((data1) => {
-                return (data1.json());
+                return (data1.json());  
             })
             .then((data2) => {
                 setData(data2)
                 console.log(data2)
             })
-    }, [1])
+    }, [])
     const Login1 = () => {
-        if (data[0].email === username1 && data[0].password === password1) {
+        const user = data.find((item) => item.email === username1 && item.password === password1);
+        if (user) {
             setDashboard(true);
             setLogin(false);
             setCreateac(false);
         }
-       else{
-        alert("sk")
-       }
+        else {
+            alert("please type a to login after")
+        }
     }
     const createac1 = () => {
         setLogin(false);
@@ -44,6 +48,16 @@ function Main() {
         setLogin(true);
         setCreateac(false);
         setDashboard(false);
+    }
+
+    // /light mode
+    const counter = 0
+    const lightmode = () => {
+        const color = document.querySelector('body');
+        if (color) {
+            setlightchanger(!ligthchanger); //changing the name
+            color.classList.toggle('text-color')
+        }
     }
     return (
         <div>
@@ -71,7 +85,7 @@ function Main() {
                         <input type="email" className='inputtype1' /><br />
                         <label htmlFor="">PassWord  :</label>
                         <input type="password" className='inputtype1' />
-                        <br /> 
+                        <br />
                         <button onClick={Login1}>Create a Acc....</button>
                         <p>or</p>
                         <hr className="hr" />
@@ -84,7 +98,7 @@ function Main() {
                 <div className='heading1'>
                     <div className='header'>
                         <h4>FinAI - Intelligent Finance Manager</h4>
-                        <h6>{data[0].email}</h6>
+                        <h6>{username1}</h6>
                     </div>
                     <Router>
                         <div className='title2'>
@@ -95,7 +109,7 @@ function Main() {
                                 <Link to="/Budgets">Budgets</Link>
                                 <Link to="/Aiadvisor">Aiadvisor</Link>
                             </div>
-                            <button className='colorchange'>Light Mode</button>
+                            <button className='colorchange' onClick={lightmode}>{ligthchanger ? "Light Mode":" Dark  Mode"}</button>
                             <button className='sign-out' onClick={backtologin}>Sign Out</button>
                         </div>
                         <Routes>

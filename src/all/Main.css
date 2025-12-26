@@ -255,3 +255,58 @@ h6{
   padding:5px;
   border-radius: 5px;
 }
+
+/* color change */
+.text-color{
+  color:rgb(0, 0, 0);
+  background-color: #d3d3d3;
+  transition: background-color 0.5s ease;
+  .header{
+     border-bottom: 1px solid black;
+  }
+  .budget{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  .budget:hover{
+    transition: transform 0.2s ease, color 0.2s ease;
+    transform: scale(1.1);
+  }
+  .title2{
+    border-right: 1px solid black;
+  }
+  .header , .title2{
+    background-color: #d3d3d3;
+    transition: background-color 0.5s ease;
+  }
+  .value{
+    color:black;
+    transition: color 0.5s ease;
+  }
+  .card{
+    background-color: white;
+    transition: background-color 0.5s ease;
+  }
+  .chart-box , .pie, .bars,h6, .balances, .budget{
+    background-color: white;
+    transition: background-color 0.5s ease;
+  }
+  form{
+    border:1px solid black;
+    background: #2d3748;  
+    color:white;
+    transition: color 0.5s ease;
+  }
+  td{
+    background-color: white;
+    transition: background-color 0.5s ease;
+  }
+  a{
+    background-color:#1f242b;
+    transition: background-color 0.5s ease;
+  }
+  a:hover{
+    background-color: #2b6cb0;
+    transition: background-color 0.5s ease;
+  }
+}

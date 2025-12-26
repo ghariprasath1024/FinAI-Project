@@ -130,11 +130,11 @@ const Transaction = () => {
             <table className="transaction-table">
                 <thead>
                     <tr>
-                        <th>S.No</th>
+                        <th className="son">S.No</th>
                         <th>Description</th>
                         <th>Amount</th>
                         <th>Category</th>
-                        <th>Edit</th>
+                        <th className="son1">Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -143,7 +143,7 @@ const Transaction = () => {
                             <td>{items.id}</td>
                             <td>{items.description}</td>
                             <td>
-                                <span style={{ color: items.type === "income" ? "green" : "red" }}>
+                                <span className="Amount" style={{ color: items.type === "income" ? "green" : "red" }}>
                                     {items.type === "income" ? "+" : "-"} {items.amount}
                                 </span>
                             </td>

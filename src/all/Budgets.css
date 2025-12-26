@@ -76,7 +76,6 @@ input {
 .budget:hover{
     transform: scale(1.1);
     cursor: pointer;
-    box-shadow: 4px 4px 1px white;
 }
 
 .budget h3{
@@ -113,6 +112,7 @@ input {
     background-color:  #52556f;
     border-radius: 10px;
     border:1px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .allingment{

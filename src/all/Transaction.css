@@ -112,6 +112,7 @@ button:hover {
   border-bottom: 1px solid white;;
   padding: 10px 15px;
   text-align: center;
+  background-color:  #3b3d4f;
 }
 
 .transaction-table th {
@@ -134,4 +135,18 @@ button:hover {
 .transaction-table svg:hover {
   transform: scale(1.2);
   color: #3182ce;
+}
+
+.Amount{
+  padding:4px;
+  border-radius: 15px;
+  background-color: #ccc;
+}
+
+.son{
+  border-radius: 10px 0px 0px 0px;
+}
+
+.son1{
+  border-radius: 0px 10px 0px 0px;
 }
