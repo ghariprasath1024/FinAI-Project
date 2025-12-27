@@ -309,4 +309,7 @@ h6{
     background-color: #2b6cb0;
     transition: background-color 0.5s ease;
   }
+  .transaction-table td{
+    background-color:  #ffffff;
+  }
 }

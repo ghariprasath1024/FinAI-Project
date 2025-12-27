@@ -72,7 +72,7 @@ const Budgets = ({ transactions = [] }) => {
             <h2>Budgets</h2>
             <p>Track spending limits per category.</p>
             <div className="budget1">
-                <p><h2>Monthly Budget Manager</h2>Tracking for {month1}  {currentYear}</p>
+                <p> <h2>Monthly Budget Manager</h2> Tracking for {month1}  {currentYear}</p>
                 {!showForm && (
                     <button onClick={() => setShowForm(true)}>
                         + Add Budget

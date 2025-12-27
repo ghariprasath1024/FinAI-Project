@@ -9,16 +9,16 @@ const Transaction = () => {
     const [add, setAdd] = useState("");           // getting the description 
     const [amount, setAmount] = useState("");     // getting the amount
     const [category, setCategory] = useState(""); // getting the category
-    const [type, setType] = useState("");         // store type string
+    const [type, setType] = useState("expense"); // Set a default value         // store type string
     const [save, setSave] = useState(false);
     let [income, setIncome] = useState(0);   // this are the editing the formate 
     let [expense, setExpense] = useState(0);
 
     // this are the editing the formate 
 
-    let [newitem, setNewitem] = useState(""); // used to edite the description
-    let [newamount, setNewamount] = useState(""); // used to edite the amount
-    let [newcategory, setNewcategory] = useState(""); // used to edite the category
+    // let [newitem, setNewitem] = useState(""); // used to edite the description
+    // let [newamount, setNewamount] = useState(""); // used to edite the amount
+    // let [newcategory, setNewcategory] = useState(""); // used to edite the category
     let [editer, setEditer] = useState(null); // used to edite the item in the text 
     const show = () => {
         if (add !== "" && amount !== "" && category !== "") {
@@ -35,7 +35,7 @@ const Transaction = () => {
                 setData1([
                     ...data1,
                     {
-                        id: data1.length + 1,
+                        id: Date.now(),
                         description: add,
                         amount,
                         category,
@@ -45,10 +45,10 @@ const Transaction = () => {
             }
             reset();
             setData(false);
+            setSave(false);
         } else {
             alert("Please fill in all fields.");
         }
-        setSave(false);
     };
     const reset = () => {
         setAdd("");
@@ -66,11 +66,11 @@ const Transaction = () => {
         setEditer(null);
     }
     const edite = (id) => {
-        let listItem = data1.find((data2) => data2.id === id);
-        console.log(listItem);
-        setNewitem(listItem.description);
-        setNewamount(listItem.amount);
-        setNewcategory(listItem.category);
+        let listItem = data1.find((item) => item.id === id);
+        setAdd(listItem.description);
+        setAmount(listItem.amount);
+        setCategory(listItem.category);
+        setType(listItem.type);
         setEditer(id);
         setData(true);
         setSave(true);
@@ -96,7 +96,6 @@ const Transaction = () => {
             <h1>Transaction</h1>
             <p className="sub">Manage your income and expenses</p>
             <button onClick={() => setData(true)}>New Trans..</button>
-
             {data && (
                 <div className="heading-title">
                     <p className="heading">{save ? "Editing the Transaction" : "Adding the New Transaction"}</p>
@@ -104,15 +103,15 @@ const Transaction = () => {
                     <div className="Adding-Items">
                         <p>
                             Description:
-                            <input type="text"placeholder="enter a description" required value={add} onChange={(event) => setAdd(event.target.value)}/>
+                            <input type="text" placeholder="enter a description" required value={add} onChange={(event) => setAdd(event.target.value)} />
                         </p>
                         <p>
                             Amount:
-                            <input type="number" placeholder="enter an amount" required value={amount} onChange={(event) => setAmount(event.target.value)}/>
+                            <input type="number" placeholder="enter an amount" required value={amount} onChange={(event) => setAmount(event.target.value)} />
                         </p>
                         <p>
                             Category:
-                            <input type="text" placeholder="enter a category" value={category} onChange={(event) => setCategory(event.target.value)}/>
+                            <input type="text" placeholder="enter a category" value={category} onChange={(event) => setCategory(event.target.value)} />
                         </p>
                         <p>
                             Type:
@@ -138,9 +137,9 @@ const Transaction = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data1.map((items) => (
+                    {data1.map((items, index) => (
                         <tr key={items.id}>
-                            <td>{items.id}</td>
+                            <td>{index + 1}</td>
                             <td>{items.description}</td>
                             <td>
                                 <span className="Amount" style={{ color: items.type === "income" ? "green" : "red" }}>

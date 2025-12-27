@@ -36,7 +36,7 @@ function Main() {
             setCreateac(false);
         }
         else {
-            alert("please type a to login after")
+            alert("please try a to login after")
         }
     }
     const createac1 = () => {
@@ -80,7 +80,8 @@ function Main() {
                 createac &&
                 <div>
                     <div className='login'>
-                        <h1>Create a Account</h1>
+                        <h1>Create a
+                            <br /> Account</h1>
                         <label htmlFor="">Email  :</label>
                         <input type="email" className='inputtype1' /><br />
                         <label htmlFor="">PassWord  :</label>
