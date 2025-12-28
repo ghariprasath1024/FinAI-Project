@@ -66,7 +66,7 @@ const Budgets = ({ transactions = [] }) => {
         setBudgets(budgets.filter((b) => b.id !== id));
     };
     const month1 = new Date().toLocaleString("default", { month: "long" });
-    const currentYear =new Date().toLocaleDateString();
+    const currentYear = new Date().toLocaleDateString();
     return (
         <div className="main">
             <h2>Budgets</h2>
@@ -123,7 +123,7 @@ const Budgets = ({ transactions = [] }) => {
                     const over = spent > budget.amount;
                     return (
                         <div key={budget.id} className="budget">
-                            <div><h3>{budget.category}</h3><div><TiPencil role="button"onClick={() => handleEdit(budget)} tabIndex={0} className="editores" /><MdDeleteOutline role="button" onClick={() => handleDelete(budget.id)} tabIndex={0} className="editores" /></div></div>
+                            <div><h3>{budget.category}</h3><div><TiPencil role="button" onClick={() => handleEdit(budget)} tabIndex={0} className="editores" /><MdDeleteOutline role="button" onClick={() => handleDelete(budget.id)} tabIndex={0} className="editores" /></div></div>
                             <p>Limit: ${budget.amount}</p>
                             <div><p>{spent}</p><p>Used: {Math.round(percent)}%</p></div>
                             {over ? (

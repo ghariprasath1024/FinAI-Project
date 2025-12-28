@@ -16,7 +16,7 @@ function Dashboard() {
                             <MdOutlineAttachMoney className='icons' style={{ color: "white" }} />
                         </nav>
                     </div>
-                    <div className="value">${}</div>
+                    <div className="value">${ }</div>
                     <div>Available funds</div>
                 </div>
                 <div className="card">
@@ -26,7 +26,7 @@ function Dashboard() {
                             <GoArrowUpRight className="icons" style={{ color: "white" }} />
                         </nav>
                     </div>
-                    <div className="value">${}</div>
+                    <div className="value">${ }</div>
                     <div>{""}vs last month</div>
                 </div>
                 <div className="card">
@@ -34,7 +34,7 @@ function Dashboard() {
                         <div className="label1">Total Expenses</div>
                         <nav><GoArrowDownRight className="icons" style={{ color: "white" }} /></nav>
                     </div>
-                    <div className="value">${}</div>
+                    <div className="value">${ }</div>
                     <div>{""}vs last month</div>
                 </div>
             </div>
