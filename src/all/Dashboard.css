@@ -1,8 +1,8 @@
 .main {
     padding: 20px;
     font-family: sans-serif;
-    margin-left:270px;
-    padding-top:80px;
+    margin-left: 17%;
+    padding-top: 80px;
 }
 
 .sub {
@@ -75,4 +75,15 @@
 .label {
     display: flex;
     justify-content: space-between;
+}
+
+@media screen and (min-width:1000px) and (max-width:1439px){
+  .main{
+      margin-left: 19%;
+  }
+}
+@media screen and (min-width:760px) and (max-width:1000px) {
+  .main{
+    margin-left:180px;
+  }
 }

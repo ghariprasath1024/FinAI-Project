@@ -250,7 +250,7 @@ h4 {
 h6{
   position:fixed;
   top:0px;
-  left:90%;
+  left:85%;
   background-color: #212121;
   padding:5px;
   border-radius: 5px;
@@ -311,5 +311,50 @@ h6{
   }
   .transaction-table td{
     background-color:  #ffffff;
+  }
+}
+
+@media screen and (min-width:1000px) and (max-width:1439px){
+  .title2{
+    width:200px;
+  }
+  a{
+    padding:10px 30px 10px 30px;
+  }
+  .sign-out{
+    margin-top:15px;
+    margin-left:34px;
+  }
+  .colorchange{
+    margin-left:28px;
+  }
+  .links {
+  top: 190px;
+  }
+  .login{
+    margin:80px auto 80px;
+  }
+}
+
+@media screen and (min-width:760px) and (max-width:1000px) {
+  .login{
+    margin:80px auto 80px;
+  }
+  .title2{
+      width:180px;
+  }
+  a{
+    padding:10px 20px 10px 20px;
+  }
+  .links{
+    top:180px;
+    gap:20px;
+  }
+  .colorchange{
+    margin-left:15px;
+    top:490px;
+  }
+  .main{
+    margin-left:250px;
   }
 }
